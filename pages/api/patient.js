@@ -1,4 +1,4 @@
-import patients from "../../data/patients";
+import patients from "../../data/Patient";
 
 /**
  * @swagger
@@ -11,7 +11,7 @@ import patients from "../../data/patients";
  *         schema:
  *           type: string
  *         required: true
- *         default: 577390
+ *         default: 0a56854c-d96f-e6b8-40fb-d55b3e438d27
  *         description: String ID (within resource.identifier) of the Patient to get
  *     responses:
  *       200:
