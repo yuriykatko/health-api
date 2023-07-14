@@ -1,4 +1,4 @@
-import data from "../../data/ImagingStudy";
+import { getFirstNDocumentsInCollection } from "../../lib/mongodb";
 
 /**
  * @swagger
@@ -12,5 +12,7 @@ import data from "../../data/ImagingStudy";
  *         description: Returns First 10 Imaging Study entries
  */
 export default async function handler(req, res) {
-  res.status(200).json(data.slice(0, 10));
+  const data = await getFirstNDocumentsInCollection("ImagingStudy", 10);
+
+  res.status(200).json(data);
 }
