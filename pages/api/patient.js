@@ -2,7 +2,7 @@ import data from "../../data/Patient";
 
 /**
  * @swagger
- * /api/patients:
+ * /api/patient:
  *   get:
  *     description: Returns Patients
  *     tags:
