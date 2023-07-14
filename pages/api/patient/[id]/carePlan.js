@@ -1,4 +1,4 @@
-import data from "../../../../data/CarePlan";
+import { getDocumentsRelatedToSubject } from "../../../../lib/mongodb";
 
 /**
  * @swagger
@@ -22,7 +22,7 @@ import data from "../../../../data/CarePlan";
 export default async function handler(req, res) {
   const query = req.query;
   const { id } = query;
-  const result = data.filter((item) => item.resource.subject.reference.includes(id));
+  const data = await getDocumentsRelatedToSubject("CarePlan", id, 10);
 
-  res.status(200).json(result.slice(0, 10) ?? "not found");
+  res.status(200).json(data);
 }

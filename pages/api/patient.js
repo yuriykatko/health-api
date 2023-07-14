@@ -1,4 +1,4 @@
-import { getFirstNDocumentsInCollection } from "../../lib/mongodb";
+import { getDocuments } from "../../lib/mongodb";
 
 /**
  * @swagger
@@ -12,7 +12,7 @@ import { getFirstNDocumentsInCollection } from "../../lib/mongodb";
  *         description: Returns All Patients
  */
 export default async function handler(req, res) {
-  const data = await getFirstNDocumentsInCollection("Patient", 10);
+  const data = await getDocuments("Patient", 10);
 
   res.status(200).json(data);
 }
