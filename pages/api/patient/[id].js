@@ -22,9 +22,7 @@ import data from "../../../data/Patient";
 export default async function handler(req, res) {
   const query = req.query;
   const { id } = query;
-  const result = data.find((item) =>
-    item.resource.identifier.some((itemId) => itemId.value === id)
-  );
+  const result = data.find((item) => item.resource.id === id);
 
   res.status(200).json(result ?? "not found");
 }
