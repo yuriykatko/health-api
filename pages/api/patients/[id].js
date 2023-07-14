@@ -1,4 +1,4 @@
-import patients from "../../../data/Patient";
+import data from "../../../data/Patient";
 
 /**
  * @swagger
@@ -17,15 +17,14 @@ import patients from "../../../data/Patient";
  *         description: String ID (within resource.identifier) of the Patient to get
  *     responses:
  *       200:
- *         description: Returns All Patients
+ *         description: Returns a single Patient
  */
 export default async function handler(req, res) {
   const query = req.query;
   const { id } = query;
-  
-  const patient = patients.find((pat) =>
-    pat.resource.identifier.some((patId) => patId.value === id)
+  const result = data.find((item) =>
+    item.resource.identifier.some((itemId) => itemId.value === id)
   );
 
-  res.status(200).json(patient ?? "not found");
+  res.status(200).json(result ?? "not found");
 }
