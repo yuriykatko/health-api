@@ -1,4 +1,4 @@
-import data from "../../../data/Encounter";
+import { getDocumentById } from "../../../lib/mongodb";
 
 /**
  * @swagger
@@ -22,7 +22,7 @@ import data from "../../../data/Encounter";
 export default async function handler(req, res) {
   const query = req.query;
   const { id } = query;
-  const result = data.find((item) => item.resource.id === id);
-
+  const result = await getDocumentById("Encounter", id);
+  
   res.status(200).json(result ?? "not found");
 }
