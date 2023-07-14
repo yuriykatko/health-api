@@ -5,6 +5,8 @@ import patients from "../../data/Patient";
  * /api/patients:
  *   get:
  *     description: Returns Patients
+ *     tags:
+ *       - Patient
  *     responses:
  *       200:
  *         description: Returns All Patients

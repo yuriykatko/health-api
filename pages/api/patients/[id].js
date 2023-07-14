@@ -1,12 +1,14 @@
-import patients from "../../data/Patient";
+import patients from "../../../data/Patient";
 
 /**
  * @swagger
- * /api/patient:
+ * /api/patients/{id}:
  *   get:
  *     description: Returns a single Patient
+ *     tags:
+ *       - Patient
  *     parameters:
- *       - in: query
+ *       - in: path
  *         name: id
  *         schema:
  *           type: string
@@ -20,6 +22,7 @@ import patients from "../../data/Patient";
 export default async function handler(req, res) {
   const query = req.query;
   const { id } = query;
+  
   const patient = patients.find((pat) =>
     pat.resource.identifier.some((patId) => patId.value === id)
   );
