@@ -1,4 +1,4 @@
-import { getDocuments } from "../../lib/mongodb";
+import { getDocuments, addDocumentToCollection } from "../../lib/mongodb";
 
 /**
  * @swagger
@@ -86,8 +86,8 @@ async function handleGet(req, res) {
  */
 async function handlePost(req, res) {
   const result = await addDocumentToCollection(req.body, "DocumentReference");
-  
-  res.status(200).json(result); 
+
+  res.status(200).json(result);
 }
 
 export default async function handler(req, res) {
@@ -95,7 +95,7 @@ export default async function handler(req, res) {
     await handleGet(req, res);
   }
 
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     await handlePost(req, res);
   }
 }
