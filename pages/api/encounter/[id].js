@@ -17,7 +17,7 @@ import {
  *         schema:
  *           type: string
  *         required: true
- *         default: 009d5fb1-0473-e23a-b0c8-c2c3387fc1d7
+ *         default: 00000000-1111-2222-3333-444444444444
  *         description: String ID (within resource.id) of the Encounter to get
  *     responses:
  *       200:
