@@ -1,4 +1,4 @@
-import { getDocuments } from "../../lib/mongodb";
+import { getDocuments, addDocumentToCollection } from "../../lib/mongodb";
 
 /**
  * @swagger
@@ -29,7 +29,7 @@ async function handleGet(req, res) {
  *             type: object
  *             example:
  *               fullUrl: urn:uuid:00000000-1111-2222-3333-444444444444
- *               resource: 
+ *               resource:
  *                 resourceType: Encounter
  *                 id: 00000000-1111-2222-3333-444444444444
  *                 status: finished
@@ -73,7 +73,11 @@ async function handleGet(req, res) {
  *       200:
  *         description: Creates new Instance of Encounter
  */
-async function handlePost(req, res) {}
+async function handlePost(req, res) {
+  const result = await addDocumentToCollection(req.body, "Encounter");
+  
+  res.status(200).json(result); 
+}
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
