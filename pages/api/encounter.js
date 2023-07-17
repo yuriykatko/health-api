@@ -17,8 +17,6 @@ async function handleGet(req, res) {
   res.status(200).json(data);
 }
 
-const
-
 /**
  * @swagger
  * /api/encounter:
