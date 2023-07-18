@@ -28,11 +28,11 @@ const allObj = [
 ];
 
 const allData = [
-  // ...patient1.entry,
-  // ...patient2.entry,
-  // ...patient3.entry,
-  // ...patient4.entry,
-  // ...patient5.entry,
+  ...patient1.entry,
+  ...patient2.entry,
+  ...patient3.entry,
+  ...patient4.entry,
+  ...patient5.entry,
   ...patient6.entry,
 ];
 
@@ -56,7 +56,7 @@ export default async function handler(req, res) {
           export default entities;
       `;
   
-      fs.writeFileSync(`./data/r4/${entity.type}.js`, content, "utf8");
+      fs.writeFileSync(`./data/${entity.type}.js`, content, "utf8");
     });
   }
   
