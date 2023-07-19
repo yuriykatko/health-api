@@ -1,0 +1,101 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "questionnaire": "Questionnaire/4",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/76107"
+  },
+  "encounter": {
+    "reference": "Encounter/76104"
+  },
+  "authored": "2013-02-19T14:15:00-05:00",
+  "author": {
+    "reference": "Practitioner/76102"
+  },
+  "item": [
+    {
+      "linkId": "1",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "clover"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "non-senior"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "caregiver"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "optionA"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "optionB"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "5",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "provide-guidance"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "front-member"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "7",
+      "answer": [
+        {
+          "valueCoding": {
+            "code": "16-30"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "8",
+      "text": "Notes",
+      "answer": [
+        {
+          "valueString": "Additional notes as text"
+        }
+      ]
+    }
+  ]
+}

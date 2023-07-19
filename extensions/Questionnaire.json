@@ -1,0 +1,238 @@
+{
+  "resourceType": "Questionnaire",
+  "title": "Conversation Notes",
+  "status": "active",
+  "subjectType": ["Patient"],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "What is this customer’s insurance provider?",
+      "required": true,
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "clover",
+            "display": "Clover"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "horizon",
+            "display": "Horizon"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "unknown",
+            "display": "Unknown"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "uninsured",
+            "display": "Uninsured"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "other",
+            "display": "Other"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "text": "Customer type",
+      "required": true,
+      "repeats": true,
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "senior",
+            "display": "Senior"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "non-senior",
+            "display": "Non-senior"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "caregiver",
+            "display": "Cagegiver (for aging adult)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "customer",
+            "display": "General Customer"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "text": "How did this conversation begin?",
+      "required": true,
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "optionA",
+            "display": "Option A"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "optionB",
+            "display": "Option B"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "text": "What topic(s) did you discuss?",
+      "required": true,
+      "repeats": true,
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "optionA",
+            "display": "Option A"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "optionB",
+            "display": "Option B"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "5",
+      "text": "Select primary action(s)",
+      "repeats": true,
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "cgc-services",
+            "display": "Performed CGC services"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "provide-guidance",
+            "display": "Provided customer with information/guidance"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "referred-customer",
+            "display": "Referred customer to external clinician/PCP or care navigator"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "assisted-with-otc",
+            "display": "Assisted with OTC benefits"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "assisted-with-clover",
+            "display": "Assisted with Clover member services"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "relationship-building",
+            "display": "Relationship-building - Discuss progress, share news"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "schedule-follow-up",
+            "display": "Scheduled a follow-up call or return visit"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "text": "For services that required another Team Member, who did you engage?: (LPN/LVN only)",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "rph-in-store",
+            "display": "Staff RPh within the store"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "front-member",
+            "display": "Front of store Team Member"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "rph-another-location",
+            "display": "Health Corner RPh at another location"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "7",
+      "text": "How long did this conversation last (in minutes)?",
+      "required": true,
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "1-5",
+            "display": "1-5"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "6-15",
+            "display": "6-15"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "16-30",
+            "display": "16-30"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "31-45",
+            "display": "31-45"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "46+",
+            "display": "46+"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "8",
+      "text": "Notes",
+      "type": "string"
+    }
+  ]
+}
