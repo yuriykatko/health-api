@@ -2,16 +2,6 @@
   "resourceType": "QuestionnaireResponse",
   "questionnaire": "Questionnaire/4",
   "status": "completed",
-  "subject": {
-    "reference": "Patient/76107"
-  },
-  "encounter": {
-    "reference": "Encounter/76104"
-  },
-  "authored": "2013-02-19T14:15:00-05:00",
-  "author": {
-    "reference": "Practitioner/76102"
-  },
   "item": [
     {
       "linkId": "1",

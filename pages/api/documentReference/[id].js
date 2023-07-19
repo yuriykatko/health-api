@@ -1,5 +1,5 @@
 import {
-  getDocumentById,
+  getDocumentByResourceId,
   deleteDocument,
   updateDocument,
 } from "../../../lib/mongodb";
@@ -26,7 +26,7 @@ import {
 async function handleGet(req, res) {
   const query = req.query;
   const { id } = query;
-  const result = await getDocumentById("DocumentReference", id);
+  const result = await getDocumentByResourceId("DocumentReference", id);
 
   res.status(200).json(result ?? "not found");
 }
