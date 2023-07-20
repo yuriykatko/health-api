@@ -47,4 +47,6 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     await handlePost(req, res);
   }
+
+  res.status(200).json("ok");
 }
