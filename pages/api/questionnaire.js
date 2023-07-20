@@ -1,4 +1,4 @@
-import { getDocuments } from "../../lib/mongodb";
+import { getDocuments, addDocumentToCollection } from "../../lib/mongodb";
 
 /**
  * @swagger
