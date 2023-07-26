@@ -7,7 +7,7 @@ import { getResourceById } from "../../../../lib/hapi";
  *   get:
  *     description: Returns a single quiz entry
  *     tags:
- *       - API Front-End
+ *       - Front-End API
  *     parameters:
  *       - in: path
  *         name: id

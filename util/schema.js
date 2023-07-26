@@ -68,10 +68,55 @@ function prepareJsonFormUISchema(fhirObj) {
   return result;
 }
 
+function prepareAnswer(jsonFormAns, fhirQuestion) {
+  if (fhirQuestion.type === "choice") {
+    if (typeof jsonFormAns === "string") {
+      return {
+        valueCoding: {
+          code: jsonFormAns,
+        },
+      };
+    }
+
+    if (typeof jsonFormAns === "object") {
+      return jsonFormAns.map(function mapAnswer(ans) {
+        return {
+          valueCoding: {
+            code: ans,
+          },
+        };
+      });
+    }
+  }
+
+  if (fhirQuestion.type === "string") {
+    return [{ valueString: jsonFormAns }];
+  }
+}
+
 export function prepareSchemaForJsonForm(fhirObj) {
   return {
     title: fhirObj.title,
     schema: prepareJsonFormSchema(fhirObj),
     uischema: prepareJsonFormUISchema(fhirObj),
   };
+}
+
+export function prepareSchemaForFHIR(jsonFormResponse, id, fhirQuestionnaire) {
+  const result = {
+    resourceType: "QuestionnaireResponse",
+    questionnaire: `Questionnaire/${id}`,
+    status: "completed",
+    item: Object.keys(jsonFormResponse).map(function mapAnswer(key) {
+      return {
+        linkId: key,
+        answer: prepareAnswer(
+          jsonFormResponse[key],
+          fhirQuestionnaire.item.find((item) => item.linkId === key)
+        ),
+      };
+    }),
+  };
+
+  return result;
 }
