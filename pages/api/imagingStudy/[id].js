@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Imaging Study entry
  *     tags:
- *       - Imaging Study
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

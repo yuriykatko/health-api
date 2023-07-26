@@ -6,7 +6,7 @@ import { getDocumentsRelatedToSubject } from "../../../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Care Plan entries for given Patient
  *     tags:
- *       - Patient
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

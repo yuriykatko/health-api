@@ -6,7 +6,7 @@ import { getDocuments } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Allergy Intolerance entries
  *     tags:
- *       - Allergy Intolerance
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Allergy Intolerance entries

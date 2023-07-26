@@ -6,7 +6,7 @@ import { getDocuments } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Observation entries
  *     tags:
- *       - Observation
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Observation entries

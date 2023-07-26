@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Care Plan entry
  *     tags:
- *       - Care Plan
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

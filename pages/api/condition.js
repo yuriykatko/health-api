@@ -6,7 +6,7 @@ import { getDocuments } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Condition entries
  *     tags:
- *       - Condition
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Condition entries

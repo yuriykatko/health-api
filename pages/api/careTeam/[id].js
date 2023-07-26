@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Care Team entry
  *     tags:
- *       - Care Team
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

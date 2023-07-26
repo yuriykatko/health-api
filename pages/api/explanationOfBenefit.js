@@ -6,7 +6,7 @@ import { getDocuments } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Explanation Of Benefit entries
  *     tags:
- *       - Explanation Of Benefit
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Explanation Of Benefit entries

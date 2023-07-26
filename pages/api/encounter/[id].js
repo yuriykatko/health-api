@@ -10,7 +10,7 @@ import {
  *   get:
  *     description: Returns a single Encounter entry
  *     tags:
- *       - Encounter
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id
@@ -37,7 +37,7 @@ async function handleGet(req, res) {
  *   delete:
  *     description: Deletes a single Encounter
  *     tags:
- *       - Encounter
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id
@@ -117,7 +117,7 @@ async function handleDelete(req, res) {
  *                 method: POST
  *                 url: Encounter
  *     tags:
- *       - Encounter
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Creates new Instance of Encounter

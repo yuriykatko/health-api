@@ -6,7 +6,7 @@ import { getDocumentsRelatedToPatient } from "../../../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Explanation Of Benefit entries for given Patient
  *     tags:
- *       - Patient
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

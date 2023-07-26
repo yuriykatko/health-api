@@ -5,7 +5,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Medication Request entry
  *     tags:
- *       - Medication Request
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

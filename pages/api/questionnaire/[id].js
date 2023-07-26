@@ -6,7 +6,7 @@ import { getDocumentById, deleteDocument } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single questionnaire entry
  *     tags:
- *       - Questionnaire
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id
@@ -33,7 +33,7 @@ async function handleGet(req, res) {
  *   delete:
  *     description: Deletes a single Questionnaire
  *     tags:
- *       - Questionnaire
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

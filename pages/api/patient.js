@@ -6,7 +6,7 @@ import { getDocuments } from "../../lib/mongodb";
  *   get:
  *     description: Returns Patients
  *     tags:
- *       - Patient
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns All Patients

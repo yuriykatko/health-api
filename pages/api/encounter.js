@@ -6,7 +6,7 @@ import { getDocuments, addDocumentToCollection } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Encounter entries
  *     tags:
- *       - Encounter
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Encounter entries
@@ -68,7 +68,7 @@ async function handleGet(req, res) {
  *                 method: POST
  *                 url: Encounter
  *     tags:
- *       - Encounter
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Creates new Instance of Encounter

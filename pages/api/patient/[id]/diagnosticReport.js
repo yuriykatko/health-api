@@ -6,7 +6,7 @@ import { getDocumentsRelatedToSubject } from "../../../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Diagnostic Report entries for given Patient
  *     tags:
- *       - Patient
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

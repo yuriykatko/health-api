@@ -6,7 +6,7 @@ import { getDocuments, addDocumentToCollection } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Questionnaire entries
  *     tags:
- *       - Questionnaire
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Questionnaire entries
@@ -28,7 +28,7 @@ async function handleGet(req, res) {
  *           schema:
  *             type: object
  *     tags:
- *       - Questionnaire
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Creates new Instance of Questionnaire

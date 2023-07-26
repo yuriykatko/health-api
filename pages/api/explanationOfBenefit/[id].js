@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Explanation Of Benefit entry
  *     tags:
- *       - Explanation Of Benefit
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

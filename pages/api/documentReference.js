@@ -6,7 +6,7 @@ import { getDocuments, addDocumentToCollection } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Document Reference entries
  *     tags:
- *       - Document Reference
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Document Reference entries
@@ -79,7 +79,7 @@ async function handleGet(req, res) {
  *                 method: POST
  *                 url: DocumentReference
  *     tags:
- *       - Document Reference
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Creates new Instance of Document Reference

@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Device entry
  *     tags:
- *       - Device
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

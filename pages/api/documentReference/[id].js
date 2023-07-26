@@ -10,7 +10,7 @@ import {
  *   get:
  *     description: Returns a single Document Reference entry
  *     tags:
- *       - Document Reference
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id
@@ -37,7 +37,7 @@ async function handleGet(req, res) {
  *   delete:
  *     description: Deletes a single Document Reference
  *     tags:
- *       - Document Reference
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id
@@ -128,7 +128,7 @@ async function handleDelete(req, res) {
  *                 method: POST
  *                 url: DocumentReference
  *     tags:
- *       - Document Reference
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Updates a Document Reference

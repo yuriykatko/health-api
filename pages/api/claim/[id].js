@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Claim entry
  *     tags:
- *       - Claim
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

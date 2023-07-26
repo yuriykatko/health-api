@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Condition entry
  *     tags:
- *       - Condition
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

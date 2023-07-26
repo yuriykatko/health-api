@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single DiagnosticReport entry
  *     tags:
- *       - DiagnosticReport
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id

@@ -6,7 +6,7 @@ import { getDocuments } from "../../lib/mongodb";
  *   get:
  *     description: Returns First 10 Immunization entries
  *     tags:
- *       - Immunization
+ *       - FHIR
  *     responses:
  *       200:
  *         description: Returns First 10 Immunization entries

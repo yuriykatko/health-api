@@ -6,7 +6,7 @@ import { getDocumentByResourceId } from "../../../lib/mongodb";
  *   get:
  *     description: Returns a single Immunization entry
  *     tags:
- *       - Immunization
+ *       - FHIR
  *     parameters:
  *       - in: path
  *         name: id
