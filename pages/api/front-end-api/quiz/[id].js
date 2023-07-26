@@ -1,5 +1,5 @@
-import { getDocumentById, } from "../../../../lib/mongodb";
 import { prepareSchemaForJsonForm } from "../../../../util/schema";
+import { getResourceById } from "../../../../lib/hapi";
 
 /**
  * @swagger
@@ -14,7 +14,7 @@ import { prepareSchemaForJsonForm } from "../../../../util/schema";
  *         schema:
  *           type: string
  *         required: true
- *         default: 4
+ *         default: 10980429
  *         description: String ID (within resource.id) of the questionnaire to get
  *     responses:
  *       200:
@@ -23,8 +23,8 @@ import { prepareSchemaForJsonForm } from "../../../../util/schema";
 async function handleGet(req, res) {
   const query = req.query;
   const { id } = query;
-  const result = await getDocumentById("Questionnaire", id);
-  
+  const result = await getResourceById("Questionnaire", id);
+
   let quiz = undefined;
 
   if (result) {
