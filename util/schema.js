@@ -70,6 +70,7 @@ function prepareJsonFormUISchema(fhirObj) {
 
 export function prepareSchemaForJsonForm(fhirObj) {
   return {
+    title: fhirObj.title,
     schema: prepareJsonFormSchema(fhirObj),
     uischema: prepareJsonFormUISchema(fhirObj),
   };
