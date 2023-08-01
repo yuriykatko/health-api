@@ -94,12 +94,69 @@ function prepareAnswer(jsonFormAns, fhirQuestion) {
   }
 }
 
+function getQuestionType(question) {
+  if (question.type === "choice" && question.repeats === true) {
+    return "array";
+  }
+
+  return "string";
+}
+
 export function prepareSchemaForJsonForm(fhirObj) {
   return {
     title: fhirObj.title,
     schema: prepareJsonFormSchema(fhirObj),
     uischema: prepareJsonFormUISchema(fhirObj),
   };
+}
+
+export function prepareSchemaForRJSF(fhirObj) {
+  const result = {
+    schema: {
+      title: fhirObj.title,
+      type: "object",
+      required: [],
+      properties: {},
+    },
+    uiSchema: {},
+  };
+
+  fhirObj.item.forEach(function mapQuestions(question) {
+    if (question.required === true) {
+      result.schema.required.push(question.linkId);
+    }
+
+    result.schema.properties[question.linkId] = {
+      title: question.text,
+      type: getQuestionType(question),
+    };
+
+    if (result.schema.properties[question.linkId].type === "array") {
+      result.schema.properties[question.linkId].items = {
+        type: "string",
+        enum: question.answerOption.map((option) => option.valueCoding.display),
+      };
+      result.schema.properties[question.linkId].uniqueItems = true;
+
+      result.uiSchema[question.linkId] = { "ui:widget": "checkboxes" };
+    }
+
+    if (
+      result.schema.properties[question.linkId].type === "string" &&
+      question.type === "choice"
+    ) {
+      result.schema.properties[question.linkId].enum =
+        question.answerOption.map((option) => option.valueCoding.display);
+
+      result.uiSchema[question.linkId] = { "ui:widget": "radio" };
+    }
+
+    if (question.type === "string") {
+      result.uiSchema[question.linkId] = { "ui:widget": "textarea" };
+    }
+  });
+
+  return result;
 }
 
 export function prepareSchemaForFHIR(jsonFormResponse, id, fhirQuestionnaire) {
