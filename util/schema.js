@@ -142,6 +142,10 @@ export function prepareSchemaForRJSF(fhirObj) {
       };
       result.schema.properties[question.linkId].uniqueItems = true;
 
+      if (question.required) {
+        result.schema.properties[question.linkId].minItems = 1;
+      }
+
       result.uiSchema[question.linkId] = { "ui:widget": "checkboxes" };
     }
 
