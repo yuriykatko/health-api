@@ -146,7 +146,10 @@ export function prepareSchemaForRJSF(fhirObj) {
         result.schema.properties[question.linkId].minItems = 1;
       }
 
-      result.uiSchema[question.linkId] = { "ui:widget": "checkboxes" };
+      result.uiSchema[question.linkId] = { 
+        "ui:widget": "checkboxes",
+        "ui:classNames": "wh-checkboxes-field",
+      };
     }
 
     if (
@@ -156,11 +159,17 @@ export function prepareSchemaForRJSF(fhirObj) {
       result.schema.properties[question.linkId].enum =
         question.answerOption.map((option) => option.valueCoding.display);
 
-      result.uiSchema[question.linkId] = { "ui:widget": "radio" };
+      result.uiSchema[question.linkId] = { 
+        "ui:widget": "radio",
+        "ui:classNames": "wh-radio-field",
+      };
     }
 
     if (question.type === "string") {
-      result.uiSchema[question.linkId] = { "ui:widget": "textarea" };
+      result.uiSchema[question.linkId] = { 
+        "ui:widget": "textarea",
+        "ui:classNames": "wh-textarea-field"
+      };
     }
   });
 
