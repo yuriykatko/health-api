@@ -8,6 +8,10 @@ function prepareJsonFormSchema(fhirObj) {
         type: "array",
         uniqueItems: true,
       };
+
+      if (item.required) {
+        properties[item.linkId].minItems = 1;
+      }
     } else {
       properties[item.linkId] = {
         type: "string",
