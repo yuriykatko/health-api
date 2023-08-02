@@ -106,6 +106,32 @@ function getQuestionType(question) {
   return "string";
 }
 
+function prepareAnswerFromRJSF(jsonFormAns, fhirQuestion) {
+  if (fhirQuestion.type === "choice") {
+    if (typeof jsonFormAns === "string") {
+      return {
+        valueCoding: {
+          display: jsonFormAns,
+        },
+      };
+    }
+
+    if (typeof jsonFormAns === "object") {
+      return jsonFormAns.map(function mapAnswer(ans) {
+        return {
+          valueCoding: {
+            display: ans,
+          },
+        };
+      });
+    }
+  }
+
+  if (fhirQuestion.type === "string") {
+    return [{ valueString: jsonFormAns }];
+  }
+}
+
 export function prepareSchemaForJsonForm(fhirObj) {
   return {
     title: fhirObj.title,
@@ -146,7 +172,7 @@ export function prepareSchemaForRJSF(fhirObj) {
         result.schema.properties[question.linkId].minItems = 1;
       }
 
-      result.uiSchema[question.linkId] = { 
+      result.uiSchema[question.linkId] = {
         "ui:widget": "checkboxes",
         "ui:classNames": "wh-checkboxes-field",
       };
@@ -159,16 +185,16 @@ export function prepareSchemaForRJSF(fhirObj) {
       result.schema.properties[question.linkId].enum =
         question.answerOption.map((option) => option.valueCoding.display);
 
-      result.uiSchema[question.linkId] = { 
+      result.uiSchema[question.linkId] = {
         "ui:widget": "radio",
         "ui:classNames": "wh-radio-field",
       };
     }
 
     if (question.type === "string") {
-      result.uiSchema[question.linkId] = { 
+      result.uiSchema[question.linkId] = {
         "ui:widget": "textarea",
-        "ui:classNames": "wh-textarea-field"
+        "ui:classNames": "wh-textarea-field",
       };
     }
   });
@@ -193,4 +219,21 @@ export function prepareSchemaForFHIR(jsonFormResponse, id, fhirQuestionnaire) {
   };
 
   return result;
+}
+
+export function mapRJSFResponseToFHIR(rjsfResponse, id, fhirQuestionnaire) {
+  return {
+    resourceType: "QuestionnaireResponse",
+    questionnaire: `Questionnaire/${id}`,
+    status: "completed",
+    item: Object.keys(rjsfResponse).map(function mapAnswer(key) {
+      return {
+        linkId: key,
+        answer: prepareAnswerFromRJSF(
+          rjsfResponse[key],
+          fhirQuestionnaire.item.find((item) => item.linkId === key)
+        ),
+      };
+    }),
+  };
 }
