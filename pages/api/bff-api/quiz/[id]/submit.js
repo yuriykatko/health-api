@@ -1,9 +1,13 @@
 import { mapRJSFResponseToFHIR } from "../../../../../util/schema";
-import { getResourceById, createResource, searchForResource } from "../../../../../lib/hapi";
+import {
+  getResourceById,
+  createResource,
+  searchForResource,
+} from "../../../../../lib/hapi";
 
 async function tryGetPatient(idInMSD) {
   const query = `identifier=MSD|${idInMSD}`;
-  const response = await searchForResource('Patient', query);
+  const response = await searchForResource("Patient", query);
 
   let patient = undefined;
 
@@ -43,11 +47,12 @@ async function tryGetPatient(idInMSD) {
 async function handlePost(req, res) {
   const query = req.query;
   const { id } = query;
-  
+  const { quizResponse, patient } = req.body;
+
   const fhirQuestionnaire = await getResourceById("Questionnaire", id);
-  const fhirPatient = await tryGetPatient(req.body.patient.id);
+  const fhirPatient = await tryGetPatient(patient.id);
   const fhirQuestionnaireResponse = mapRJSFResponseToFHIR(
-    req.body.quizResponse,
+    quizResponse,
     id,
     fhirQuestionnaire,
     fhirPatient.resource.id
