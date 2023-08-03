@@ -59,7 +59,7 @@ async function tryGetPatient(msdPatient) {
  *           schema:
  *             type: object
  *     tags:
- *       - BFF API
+ *       - Front End API - RJSF
  *     responses:
  *       200:
  *         description: Submits Quiz response

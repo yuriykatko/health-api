@@ -19,7 +19,7 @@ import { prepareSchemaForFHIR } from "../../../../../util/schema";
  *           schema:
  *             type: object
  *     tags:
- *       - Front-End API
+ *       - Front End API - JsonForms
  *     responses:
  *       200:
  *         description: Submit answers for a quiz

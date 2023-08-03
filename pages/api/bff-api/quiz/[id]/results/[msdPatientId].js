@@ -20,7 +20,7 @@ async function tryGetAllQuizResponses(fhirQId, fhirPatientId) {
  *   get:
  *     description: Get All Quiz Responses for given user
  *     tags:
- *       - BFF API
+ *       - Front End API - RJSF
  *     parameters:
  *       - in: path
  *         name: id
