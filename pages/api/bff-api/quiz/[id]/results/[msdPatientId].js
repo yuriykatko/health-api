@@ -4,15 +4,7 @@ async function tryGetPatient(idInMSD) {
   const query = `identifier=MSD|${idInMSD}`;
   const response = await searchForResource("Patient", query);
 
-  let patient = undefined;
-
-  if (response.total > 0) {
-    patient = response.entry[0];
-  } else {
-    // TODO: Create Patient
-  }
-
-  return patient;
+  return response.total > 0 ? response.entry[0] : undefined;
 }
 
 async function tryGetAllQuizResponses(fhirQId, fhirPatientId) {
@@ -54,9 +46,14 @@ async function handleGet(req, res) {
   const { id, msdPatientId } = query;
 
   const patient = await tryGetPatient(msdPatientId);
-  const responses = await tryGetAllQuizResponses(id, patient.resource.id);
 
-  res.status(200).json(responses);
+  if (!patient) {
+    res.status(200).json([]); 
+  } else {
+    const responses = await tryGetAllQuizResponses(id, patient.resource.id);
+
+    res.status(200).json(responses);
+  }
 }
 
 export default async function handler(req, res) {
