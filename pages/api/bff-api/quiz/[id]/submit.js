@@ -5,8 +5,8 @@ import {
   searchForResource,
 } from "../../../../../lib/hapi";
 
-async function tryGetPatient(idInMSD) {
-  const query = `identifier=MSD|${idInMSD}`;
+async function tryGetPatient(msdPatient) {
+  const query = `identifier=MSD|${msdPatient.id}`;
   const response = await searchForResource("Patient", query);
 
   let patient = undefined;
@@ -14,7 +14,27 @@ async function tryGetPatient(idInMSD) {
   if (response.total > 0) {
     patient = response.entry[0];
   } else {
-    // TODO: Create Patient
+    const newPatient = {
+      resourceType: "Patient",
+      identifier: [
+        {
+          use: "usual",
+          system: "MSD",
+          value: msdPatient.id,
+        },
+      ],
+      active: true,
+      name: [
+        {
+          use: "official",
+          family: msdPatient.lastName,
+          given: [msdPatient.firstName],
+        },
+      ],
+      gender: msdPatient.gender,
+    };
+
+    patient = await createResource("Patient", newPatient);
   }
 
   return patient;
@@ -50,7 +70,7 @@ async function handlePost(req, res) {
   const { quizResponse, patient } = req.body;
 
   const fhirQuestionnaire = await getResourceById("Questionnaire", id);
-  const fhirPatient = await tryGetPatient(patient.id);
+  const fhirPatient = await tryGetPatient(patient);
   const fhirQuestionnaireResponse = mapRJSFResponseToFHIR(
     quizResponse,
     id,
