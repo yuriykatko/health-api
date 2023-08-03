@@ -75,7 +75,7 @@ async function handlePost(req, res) {
     quizResponse,
     id,
     fhirQuestionnaire,
-    fhirPatient.resource.id
+    fhirPatient.id
   );
 
   const fhirResponse = await createResource(
