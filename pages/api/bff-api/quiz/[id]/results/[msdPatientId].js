@@ -11,7 +11,7 @@ async function tryGetAllQuizResponses(fhirQId, fhirPatientId) {
   const query = `questionnaire=${fhirQId}&subject=${fhirPatientId}`
   const response = await searchForResource("QuestionnaireResponse", query);
 
-  return response.entry;
+  return response.total > 0 ? response.entry : [];
 }
 
 /**
