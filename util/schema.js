@@ -226,7 +226,7 @@ export function mapRJSFResponseToFHIR(rjsfResponse, id, fhirQuestionnaire, patie
     resourceType: "QuestionnaireResponse",
     questionnaire: `Questionnaire/${id}`,
     status: "completed",
-    subject: `Patient/${patientId}`,
+    subject: { reference: `Patient/${patientId}`},
     item: Object.keys(rjsfResponse).map(function mapAnswer(key) {
       return {
         linkId: key,
