@@ -32,7 +32,11 @@ async function tryGetPatientId(msdPatient) {
         },
       ],
       gender: msdPatient.gender,
-      birthDate : msdPatient.birthday,
+      birthDate: msdPatient.birthday,
+      address: [{
+        use: "home",
+        text: msdPatient.address,
+      }],
     };
 
     const patient = await createResource("Patient", newPatient);
