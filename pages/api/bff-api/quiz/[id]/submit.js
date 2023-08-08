@@ -86,7 +86,7 @@ async function tryGetPatientId(msdPatient) {
 async function getEncounterId(patientId) {
   const newEncounter = {
     resourceType: "Encounter",
-    status: "completed",
+    status: "unknown",
     subject:  {
       reference: `Patient/${patientId}`
     }
