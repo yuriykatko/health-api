@@ -5,6 +5,42 @@ import {
   searchForResource,
 } from "../../../../../lib/hapi";
 
+async function tryGetPractitionerId(msdUser) {
+  const query = `identifier=MSD|${msdUser.id}`;
+  const response = await searchForResource("Practitioner", query);
+
+  let id = undefined;
+
+  if (response.total > 0) {
+    id = response.entry[0].resource.id;
+  } else {
+    const newPractitioner = {
+      resourceType: "Practitioner",
+      identifier: [
+        {
+          use: "usual",
+          system: "MSD",
+          value: msdUser.id,
+        },
+      ],
+      name: [
+        {
+          use: "official",
+          family: msdUser.lastName,
+          given: [msdUser.firstName],
+        },
+      ],
+      gender: msdUser.gender,
+    };
+
+    const practitioner = await createResource("Practitioner", newPractitioner);
+
+    id = practitioner.id;
+  }
+
+  return id;
+}
+
 async function tryGetPatientId(msdPatient) {
   const query = `identifier=MSD|${msdPatient.id}`;
   const response = await searchForResource("Patient", query);
@@ -74,16 +110,18 @@ async function tryGetPatientId(msdPatient) {
 async function handlePost(req, res) {
   const query = req.query;
   const { id } = query;
-  const { quizResponse, patient } = req.body;
+  const { quizResponse, patient, practitioner } = req.body;
 
   const fhirQuestionnaire = await getResourceById("Questionnaire", id);
   const fhirPatientId = await tryGetPatientId(patient);
+  const fhirPractitionerId = await tryGetPractitionerId(practitioner);
 
   const fhirQuestionnaireResponse = mapRJSFResponseToFHIR(
     quizResponse,
     id,
     fhirQuestionnaire,
-    fhirPatientId
+    fhirPatientId,
+    fhirPractitionerId
   );
 
   const fhirResponse = await createResource(

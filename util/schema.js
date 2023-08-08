@@ -221,12 +221,21 @@ export function prepareSchemaForFHIR(jsonFormResponse, id, fhirQuestionnaire) {
   return result;
 }
 
-export function mapRJSFResponseToFHIR(rjsfResponse, id, fhirQuestionnaire, patientId) {
+export function mapRJSFResponseToFHIR(
+  rjsfResponse,
+  id,
+  fhirQuestionnaire,
+  patientId,
+  practitionerId
+) {
   return {
     resourceType: "QuestionnaireResponse",
     questionnaire: `Questionnaire/${id}`,
     status: "completed",
-    subject: { reference: `Patient/${patientId}`},
+    subject: { reference: `Patient/${patientId}` },
+    author: {
+      reference: `Practitioner/${practitionerId}`,
+    },
     item: Object.keys(rjsfResponse).map(function mapAnswer(key) {
       return {
         linkId: key,
