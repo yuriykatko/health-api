@@ -83,6 +83,20 @@ async function tryGetPatientId(msdPatient) {
   return id;
 }
 
+async function getEncounterId(patientId) {
+  const newEncounter = {
+    resourceType: "Encounter",
+    status: "completed",
+    subject:  {
+      reference: `Patient/${patientId}`
+    }
+  };
+
+  const encounter = await createResource("Encounter", newEncounter);
+
+  return encounter.id;
+}
+
 /**
  * @swagger
  * /api/bff-api/quiz/{id}/submit:
@@ -115,13 +129,15 @@ async function handlePost(req, res) {
   const fhirQuestionnaire = await getResourceById("Questionnaire", id);
   const fhirPatientId = await tryGetPatientId(patient);
   const fhirPractitionerId = await tryGetPractitionerId(practitioner);
+  const fhirEncounterId = await getEncounterId(fhirPatientId);
 
   const fhirQuestionnaireResponse = mapRJSFResponseToFHIR(
     quizResponse,
     id,
     fhirQuestionnaire,
     fhirPatientId,
-    fhirPractitionerId
+    fhirPractitionerId,
+    fhirEncounterId
   );
 
   const fhirResponse = await createResource(

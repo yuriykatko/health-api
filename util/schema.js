@@ -226,7 +226,8 @@ export function mapRJSFResponseToFHIR(
   id,
   fhirQuestionnaire,
   patientId,
-  practitionerId
+  practitionerId,
+  encounterId
 ) {
   return {
     resourceType: "QuestionnaireResponse",
@@ -235,6 +236,9 @@ export function mapRJSFResponseToFHIR(
     subject: { reference: `Patient/${patientId}` },
     author: {
       reference: `Practitioner/${practitionerId}`,
+    },
+    encounter : {
+      reference : `Encounter/${encounterId}`,
     },
     item: Object.keys(rjsfResponse).map(function mapAnswer(key) {
       return {
