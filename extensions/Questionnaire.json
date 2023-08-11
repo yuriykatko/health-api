@@ -1,38 +1,62 @@
 {
   "resourceType": "Questionnaire",
-  "id": "4",
+  "id": "66",
   "title": "Conversation Notes",
   "status": "active",
   "subjectType": ["Patient"],
   "item": [
     {
       "linkId": "1",
-      "text": "What is this customer’s insurance provider?",
+      "text": "Client Name:",
       "required": true,
       "type": "choice",
       "answerOption": [
         {
           "valueCoding": {
             "code": "clover",
-            "display": "Clover"
+            "display": "Clover Health"
           }
         },
         {
           "valueCoding": {
             "code": "horizon",
-            "display": "Horizon"
+            "display": "Horizon BCBSNJ"
           }
         },
         {
           "valueCoding": {
-            "code": "unknown",
-            "display": "Unknown"
+            "code": "braven",
+            "display": "Braven Health"
           }
         },
         {
           "valueCoding": {
-            "code": "uninsured",
-            "display": "Uninsured"
+            "code": "bsc",
+            "display": "Blue Shield of California(BSC)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "bsc-covered",
+            "display": "BSC Covered California"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "buckeye",
+            "display": "Buckeye of Ohio"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "pearl",
+            "display": "Pearl Health"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "horizon-shbp",
+            "display": "Horizon SHBP"
           }
         },
         {
@@ -65,13 +89,13 @@
         {
           "valueCoding": {
             "code": "caregiver",
-            "display": "Cagegiver (for aging adult)"
+            "display": "Cagegiver"
           }
         },
         {
           "valueCoding": {
             "code": "customer",
-            "display": "General Customer"
+            "display": "General retail customer"
           }
         }
       ]
@@ -84,42 +108,150 @@
       "answerOption": [
         {
           "valueCoding": {
-            "code": "optionA",
-            "display": "Option A"
+            "code": "planned-appt",
+            "display": "Planned Appointment"
           }
         },
         {
           "valueCoding": {
-            "code": "optionB",
-            "display": "Option B"
+            "code": "in-store",
+            "display": "In Store/Pharmacy Referral"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "in-aisle",
+            "display": "In Aisle Conversation"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "inbound-call",
+            "display": "Inbound Phone Call"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "outreach-call",
+            "display": "Outreach Phone Call"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "member-mail",
+            "display": "Member Received Mailer/Postcard"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "community-outreach",
+            "display": "Community Outreach Event(ex. Senior Day)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "new-to-wg",
+            "display": "New to Walgreens as a Result of Health Corner"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "broker-ref",
+            "display": "Broker Referral"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "other",
+            "display": "Other"
           }
         }
       ]
     },
     {
       "linkId": "4",
-      "text": "What topic(s) did you discuss?",
+      "text": "What topics did you discuss?",
       "required": true,
       "repeats": true,
       "type": "choice",
       "answerOption": [
         {
           "valueCoding": {
-            "code": "optionA",
-            "display": "Option A"
+            "code": "caregap-services",
+            "display": "Care Cap Closure Services"
           }
         },
         {
           "valueCoding": {
-            "code": "optionB",
-            "display": "Option B"
+            "code": "otc-recs",
+            "display": "OTC/Supplemental Recommendations"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "otc-benefits",
+            "display": "OTC Benefits"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "device-guidance",
+            "display": "Guidance on Using Healthcare Devices(General)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "smart-devices",
+            "display": "Smart/Connected Healthcare Devices"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "wg-app",
+            "display": "Walgreen’s app/Other app"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "cron-disease-mgt",
+            "display": "Chronic Disease Diagnosis and Management"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "lifestyle-recs",
+            "display": "Lifestyle Recommendations"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "navigating-healthcare",
+            "display": "Navigating Healthcare (Insurance/Providers)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "covid-19",
+            "display": "COVID-19"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "sdoh",
+            "display": "SDOH Education"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "other",
+            "display": "Other"
           }
         }
       ]
     },
     {
       "linkId": "5",
-      "text": "Select primary action(s)",
+      "text": "Select primary actions",
       "repeats": true,
       "type": "choice",
       "answerOption": [
@@ -169,7 +301,7 @@
     },
     {
       "linkId": "6",
-      "text": "For services that required another Team Member, who did you engage?: (LPN/LVN only)",
+      "text": "For services that require another Team Member, who did you engage?",
       "type": "choice",
       "answerOption": [
         {
@@ -181,13 +313,19 @@
         {
           "valueCoding": {
             "code": "front-member",
-            "display": "Front of store Team Member"
+            "display": "Front of Store Team Member"
           }
         },
         {
           "valueCoding": {
             "code": "rph-another-location",
             "display": "Health Corner RPh at another location"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "na",
+            "display": "Not applicable"
           }
         }
       ]
@@ -232,7 +370,7 @@
     },
     {
       "linkId": "8",
-      "text": "Notes",
+      "text": "Conversation notes:",
       "type": "string"
     }
   ]
